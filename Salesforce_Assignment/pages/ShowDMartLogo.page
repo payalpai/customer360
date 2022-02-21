@@ -1,0 +1,5 @@
+<apex:page >
+<!-- Begin Default Content REMOVE THIS -->
+<apex:image url="/resource/DMartProducts/DmartHeaderBranding.png" style="max-height:50px;max-width=60px;"/>
+<!-- End Default Content REMOVE THIS -->
+</apex:page>

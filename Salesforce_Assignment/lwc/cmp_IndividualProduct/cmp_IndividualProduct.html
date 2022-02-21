@@ -1,0 +1,62 @@
+<!-- This component displays all the products for the selected pricebook and allows below functionality 
+    1. Add product to cart 
+-->
+<template>
+    <lightning-card>
+        <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+        <div class="slds-grid">
+            <div class={productColumnSize}>
+                <template for:each={productList} for:item="product">
+                    <div key={product.productId} class="co-result">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-3 image-div">
+                                <template if:true={product.productId}>
+                                    <img id={product.productId} class="image-class" src={product.productImage}></img>
+                                </template> 
+                            </div>
+                            <div class="slds-col slds-size_2-of-3">
+                                <div><strong>{product.productName}</strong></div>
+                                <div>{product.productCode}</div>
+                                <div>${product.productListPrice}.00</div>
+                            </div>
+                        </div>
+                        <div>   
+                            <lightning-button-icon
+                                icon-name="custom:custom1"
+                                alternative-text="Wishlist Product"
+                                variant="bare"
+                                title="Wishlist Product"
+                                class="slds-float_left"
+                                value={product}
+                                size="large"
+                                data-index={product.productId}
+                                >
+                            </lightning-button-icon>
+
+                            <lightning-button-icon
+                                icon-name="custom:custom93"
+                                alternative-text="Add to Cart"
+                                variant="bare"
+                                title="Add to Cart"
+                                class="slds-float_right"
+                                value={product}
+                                size="large"
+                                data-index={product.productId}
+                                onclick={handleAddToCart}
+                                >
+                            </lightning-button-icon>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="slds-col slds-size_2-of-5">
+                
+                <template if:true={showCart}>
+                    <c-cmp_view-cart account-id={accountId} selected-pricebook={selectedPricebook} onclearshowcart={handleClearShowCart}></c-cmp_view-cart>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

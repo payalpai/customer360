@@ -1,0 +1,36 @@
+<!-- This is a master component and hold the entire functionality for 
+    1. Displaying Orders
+    2. Viewing Cart Products
+    3. Viewing Wishlisted Products
+    4. Browse All Products
+ -->
+<template>
+    <lightning-card>    
+        <lightning-tabset active-tab-value="Browse Products">
+                <lightning-tab label="ORDERS" data-id="all-orders" value="Orders"
+                                onactive={loadTabContent}>
+                </lightning-tab>
+                <lightning-tab label="IN CART" data-id="in-cart" value="In Cart"
+                                onactive={loadTabContent}>
+                </lightning-tab>
+                <lightning-tab label="WISHLIST" data-id="wishlist" value="Wishlist"
+                                onactive={loadTabContent}>
+                </lightning-tab>
+                <lightning-tab label="BROWSE PRODUCTS" data-id="browse-products" value="Browse Products"
+                                onactive={loadTabContent}>
+                </lightning-tab>
+        </lightning-tabset>
+        <template if:true={ordersTab}>
+            <c-cmp_view-open-orders account-id={recordId}></c-cmp_view-open-orders>
+        </template>
+        <template if:true={inCartTab}>
+            <c-cmp_view-cart account-id={recordId} selected-pricebook={selectedPricebook}></c-cmp_view-cart>
+        </template>
+        <template if:true={wishlistTab}>
+            <c-cmp_wishlisted-products></c-cmp_wishlisted-products>
+        </template>
+        <template if:true={browseTab}>
+            <c-cmp_product-catalog account-id={recordId} onchangeincart={handleChangeInCart}></c-cmp_product-catalog>
+        </template>
+    </lightning-card>     
+</template>

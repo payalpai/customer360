@@ -1,0 +1,14 @@
+.combobox-class{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.border-class{
+    margin: 1%;
+    height: 500px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+.search-class{
+    padding-left: 5%;
+    padding-right: 5%;
+}

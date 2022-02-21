@@ -1,0 +1,46 @@
+<!-- This component supports selection of pricebook to fetch all related products and allows the below functionality 
+    1. Search Product by Name
+    2. Sort Product By Name and Price
+-->
+<template>
+    <div class="combobox-class">
+        <lightning-combobox
+            name="pricebook"
+            label="Select Price Book"
+            value={value}
+            placeholder="Select Price Book"
+            options={options}
+            onchange={handleChange}
+            required
+        ></lightning-combobox>
+    </div>
+    <div class="slds-box border-class">
+        <div class="search-class" onkeyup={handleKeyUp}>
+            <div class="slds-grid">
+                <div class="slds-size_2-of-3 slds-m-right_x-small">
+                    <lightning-input
+                        name="searchProduct"
+                        label="Search Products"
+                        type="search"
+                    ></lightning-input> 
+                </div>
+                <div class="slds-size_1-of-3 slds-m-left_x-small">
+                    <lightning-combobox
+                        name="sortOptions"
+                        label="Select Sort Order"
+                        value={value}
+                        placeholder="Select Sort Order"
+                        options={sortOptions}
+                        onchange={handleSort}
+                    ></lightning-combobox>
+                </div>
+            </div>
+        </div>            
+        <c-cmp_-individual-product 
+            onchangeincart={handleChangeInCart} 
+            account-id={accountId} 
+            selected-pricebook={selectedPricebook} 
+            product-list={productList}>
+        </c-cmp_-individual-product>
+    </div>
+</template>

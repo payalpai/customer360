@@ -1,0 +1,43 @@
+.co-result{
+  text-decoration: none;
+  display: inline-grid;
+  flex-direction: row;
+  border: 1px solid #dddbda;
+  border-radius: 8px;
+  width: 240px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.border-class{
+  margin: 1%;
+  border-width: 10px;
+}
+.slds-box{
+  padding-bottom: 5%;
+}
+.button-bg{
+  background-color: #015DA3;
+}
+.cart-class{
+  padding-bottom: 10%;
+} 
+.image-div{
+  width: 80px;
+  height: 80px;
+}  
+.image-class{
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+.quantity-class{
+  margin-left: 30%;
+}
+.input-class{
+  max-width: 50px;
+  margin: 5px;
+}
+.delete-button-class{
+  margin-left: 20%;
+}

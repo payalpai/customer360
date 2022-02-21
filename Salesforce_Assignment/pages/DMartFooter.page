@@ -1,0 +1,5 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+ <apex:image url="/resource/DMartProducts/FooterBranding.jpg" style="max-height: 92px;"/>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

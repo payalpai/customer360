@@ -1,0 +1,22 @@
+<!-- This component displays all orders for the account and the order line items for each order -->
+<template>
+<div style="height: 500px;max-height: 500px;overflow-y: scroll;">
+        <template for:each={ordersList} for:item="order">
+            <div class="slds-m-around_x-small" key={order.orderNumber}>
+                <div class="slds-p-around_x-small" style="padding:0.5rem;background:#16325c">
+                    <span class="slds-text-align_left slds-p-right_x-small slds-text-color_inverse"><strong>Order Number : </strong> {order.orderNumber}</span>
+                    <span class="slds-text-align_right slds-p-left_x-small slds-text-color_inverse"><strong> Order Amount : </strong>${order.orderTotal}.00</span>
+                </div>
+                <div class="slds-border_left slds-border_right slds-m-around_x-small slds-p-around_x-small">
+                    <lightning-datatable
+                        key-field="id"
+                        data={order.orderItemsList}
+                        hide-checkbox-column="true"
+                        columns={columns}
+                    >
+                    </lightning-datatable>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
